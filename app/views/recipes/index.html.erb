@@ -2,7 +2,7 @@
 
 <div id="search-field-container">
   <form>
-    <input id="search-field" type="search" name="search_param" placeholder="Search ingredient..."/>
+    <input id="search-field" type="search" name="search_param" placeholder="Search ingredient..." required="required"/>
     <input id="search-field-button" type="submit" value="Search"/>
   </form>
 </div>
@@ -19,8 +19,8 @@
       </tr>
       <% @recipes.each do |recipe| %>
           <tr class=<%= cycle('even', 'odd') %>>
-            <td><%= image_tag(recipe["image_url"], height: '128', width: '150') %></td>
-            <td><%= recipe["title"] %></td>
+            <td><%= link_to(image_tag(recipe["image_url"], height: '100', width: '100'), recipe["source_url"], {}) %></td>
+            <td><%= link_to(sanitize(recipe["title"]), recipe["source_url"], {}) %></td>
             <td><%= recipe["social_rank"] %></td>
           </tr>
       <% end %>
