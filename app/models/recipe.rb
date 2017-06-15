@@ -16,4 +16,4 @@ class Recipe
   end
 end
 
-pp Recipe.for 'asdas'
+pp Recipe.for 'chocolate'
